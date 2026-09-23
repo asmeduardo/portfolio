@@ -1,0 +1,24 @@
+[build]
+  command = "npm run check"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/eduardo-melo-curriculo.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Disposition = "attachment; filename=eduardo-melo-curriculo.pdf"
+
+[[redirects]]
+  from = "https://www.eduardomelo.dev/*"
+  to = "https://eduardomelo.dev/:splat"
+  status = 301
+  force = true
