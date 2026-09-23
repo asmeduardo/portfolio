@@ -1,8 +1,8 @@
 import {
   ArrowRight,
+  BriefcaseBusiness,
+  CodeXml,
   Download,
-  Github,
-  Linkedin,
   Mail,
   MapPin,
 } from "lucide-react";
@@ -182,10 +182,10 @@ export default function HomePage() {
             <Mail aria-hidden="true" size={20} /> E-mail
           </a>
           <a href={portfolio.social.linkedin} rel="noreferrer" target="_blank">
-            <Linkedin aria-hidden="true" size={20} /> LinkedIn
+            <BriefcaseBusiness aria-hidden="true" size={20} /> LinkedIn
           </a>
           <a href={portfolio.social.github} rel="noreferrer" target="_blank">
-            <Github aria-hidden="true" size={20} /> GitHub
+            <CodeXml aria-hidden="true" size={20} /> GitHub
           </a>
         </div>
       </section>
