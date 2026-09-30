@@ -28,6 +28,10 @@ test("presents the professional home page without accessibility violations", asy
   await expect(
     page.getByRole("heading", { name: "Ideias que levo para o código." }),
   ).toBeVisible();
+  await expect(page.getByText("10 mil+")).toBeVisible();
+  await expect(
+    page.getByText("dispositivos ativos com o app instalado em julho de 2025"),
+  ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Ver Código Limpo na Amazon" }),
   ).toHaveAttribute("href", /amazon\.com\.br\/s\?k=/);
@@ -44,9 +48,10 @@ test("opens a case and exposes its evidence", async ({ page }) => {
     page.getByRole("heading", { level: 1, name: "Calculo Psicrometrico" }),
   ).toBeVisible();
   await expect(page.getByText("72,28 para 89,64")).toBeVisible();
+  await expect(page.getByText("10 mil+")).toBeVisible();
   await expect(page.getByText("≈3,6 mil")).toBeVisible();
   await expect(
-    page.getByText("dispositivos ativos em julho de 2025"),
+    page.getByText("dispositivos ativos com o app instalado em julho de 2025"),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Ver na Google Play" }),

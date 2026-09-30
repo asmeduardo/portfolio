@@ -273,7 +273,7 @@ a {
 .impact-grid {
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .impact-card {
   border-right: 1px solid var(--border);
@@ -872,7 +872,7 @@ a {
   border-block: 1px solid var(--border);
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 3rem;
   padding-block: 1.5rem;
 }

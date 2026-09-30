@@ -124,7 +124,11 @@ export const portfolio = portfolioSchema.parse({
   },
   impact: [
     { value: "2+ anos", label: "de experiência em aplicações web" },
-    { value: "≈3,6 mil", label: "dispositivos ativos em julho de 2025" },
+    { value: "10 mil+", label: "downloads na Google Play" },
+    {
+      value: "≈3,6 mil",
+      label: "dispositivos ativos com o app instalado em julho de 2025",
+    },
     { value: "72,28 → 89,64", label: "evolução real na avaliação SUS" },
   ],
   skills: [
@@ -263,7 +267,11 @@ export const portfolio = portfolioSchema.parse({
       status: "Publicado",
       featured: true,
       metrics: [
-        { value: "≈3,6 mil", label: "dispositivos ativos em julho de 2025" },
+        { value: "10 mil+", label: "downloads na Google Play" },
+        {
+          value: "≈3,6 mil",
+          label: "dispositivos ativos com o app instalado em julho de 2025",
+        },
         { value: "+17,36", label: "pontos na escala SUS" },
         { value: "89,64", label: "avaliação final de usabilidade" },
       ],
