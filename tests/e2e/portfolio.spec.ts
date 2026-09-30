@@ -53,6 +53,72 @@ test("opens a case and exposes its evidence", async ({ page }) => {
   await expect(page.locator(".project-gallery-item img")).toHaveCount(3);
 });
 
+test("shows project previews and navigable book covers", async ({ page }) => {
+  await page.goto("/");
+
+  const previews = page.locator(".project-visual-with-image img");
+  await expect(previews).toHaveCount(2);
+  await expect(page.locator(".project-card-3 .project-visual img")).toHaveCount(
+    0,
+  );
+  await expect(
+    page.getByRole("link", { name: "Ver projeto Calculo Psicrometrico" }),
+  ).toHaveAttribute("href", "/projetos/calculo-psicrometrico");
+
+  const carousel = page.getByRole("region", {
+    name: "Livros lidos e estudados",
+  });
+  await expect(carousel.locator(".book-card img")).toHaveCount(6);
+  const firstCover = carousel.locator(".book-card img").first();
+  await firstCover.scrollIntoViewIfNeeded();
+  await expect(firstCover).toHaveJSProperty("complete", true);
+  expect(
+    await firstCover.evaluate((image: HTMLImageElement) => image.naturalWidth),
+  ).toBeGreaterThan(0);
+
+  const track = carousel.locator(".book-carousel-track");
+  await carousel.getByRole("button", { name: "Próximo livro" }).click();
+  await expect
+    .poll(() => track.evaluate((element) => element.scrollLeft))
+    .toBeGreaterThan(0);
+  await carousel.getByRole("button", { name: "Pausar rotação" }).click();
+  await expect(
+    carousel.getByRole("button", { name: "Retomar rotação" }),
+  ).toBeVisible();
+});
+
+test("rotates book covers automatically and respects reduced motion", async ({
+  page,
+}) => {
+  await page.clock.install();
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const track = page.locator(".book-carousel-track");
+  await expect(track).toBeVisible();
+  await expect(page.locator(".book-carousel")).toHaveAttribute(
+    "data-ready",
+    "true",
+  );
+
+  await page.clock.runFor(5000);
+  await expect
+    .poll(() => track.evaluate((element) => element.scrollLeft))
+    .toBeGreaterThan(0);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(
+    page.getByRole("button", { name: "Pausar rotação" }),
+  ).toHaveCount(0);
+  await page.clock.runFor(1000);
+  const position = await track.evaluate((element) => element.scrollLeft);
+  await page.clock.runFor(5000);
+  expect(
+    Math.abs(
+      (await track.evaluate((element) => element.scrollLeft)) - position,
+    ),
+  ).toBeLessThan(8);
+});
+
 test("shows sanitized ECOTRES screenshots without presenting demo data as real results", async ({
   page,
 }) => {
