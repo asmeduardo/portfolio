@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+import { BookCarousel } from "@/components/book-carousel";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { portfolio } from "@/data/portfolio";
@@ -217,52 +218,26 @@ export default function HomePage() {
           eyebrow="Leituras"
           title="Ideias que levo para o código."
         />
-        <div className="learning-grid">
-          <div className="learning-column">
-            <h3>Lidos e estudados</h3>
-            {portfolio.learning.books.completed.length ? (
-              portfolio.learning.books.completed.map((book) => (
-                <article className="learning-item" key={book.title}>
-                  <a
-                    href={book.href}
-                    rel="noreferrer"
-                    target="_blank"
-                    aria-label={`Ver ${book.title} na Amazon`}
-                  >
-                    <strong>{book.title}</strong>
-                    <ArrowRight aria-hidden="true" size={17} />
-                  </a>
-                  <span>{book.author}</span>
-                </article>
-              ))
-            ) : (
-              <p className="learning-empty">
-                Lista de leituras em organização.
-              </p>
-            )}
-          </div>
-          <div className="learning-column">
+        <BookCarousel books={portfolio.learning.books.completed} />
+        {portfolio.learning.books.current.length > 0 ? (
+          <div className="learning-current">
             <h3>Lendo agora</h3>
-            {portfolio.learning.books.current.length ? (
-              portfolio.learning.books.current.map((book) => (
-                <article className="learning-item" key={book.title}>
-                  <a
-                    href={book.href}
-                    rel="noreferrer"
-                    target="_blank"
-                    aria-label={`Ver ${book.title} na Amazon`}
-                  >
-                    <strong>{book.title}</strong>
-                    <ArrowRight aria-hidden="true" size={17} />
-                  </a>
-                  <span>{book.author}</span>
-                </article>
-              ))
-            ) : (
-              <p className="learning-empty">Leitura atual em atualização.</p>
-            )}
+            {portfolio.learning.books.current.map((book) => (
+              <article className="learning-item" key={book.title}>
+                <a
+                  href={book.href}
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label={`Ver ${book.title} na Amazon`}
+                >
+                  <strong>{book.title}</strong>
+                  <ArrowRight aria-hidden="true" size={17} />
+                </a>
+                <span>{book.author}</span>
+              </article>
+            ))}
           </div>
-        </div>
+        ) : null}
       </section>
 
       <section

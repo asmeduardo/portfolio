@@ -448,6 +448,7 @@ a {
   overflow: hidden;
   padding: clamp(1.2rem, 3vw, 2.6rem);
   position: relative;
+  text-decoration: none;
 }
 .project-card:first-child .project-visual {
   min-height: 19rem;
@@ -504,6 +505,58 @@ a {
   max-width: 22rem;
   position: relative;
   z-index: 1;
+}
+.project-visual-media {
+  inset: 0;
+  position: absolute;
+}
+.project-visual-media img {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 350ms ease;
+}
+.project-visual-with-image::before {
+  background: linear-gradient(0deg, rgb(11 29 25 / 90%), transparent 72%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+.project-visual-with-image::after {
+  display: none;
+}
+.project-visual-with-image > .project-visual-index,
+.project-visual-with-image > .project-visual-type,
+.project-visual-with-image > strong {
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+.project-visual-with-image:hover .project-visual-media img {
+  transform: scale(1.03);
+}
+.project-visual-mobile {
+  background: #dcecf4;
+}
+.project-visual-mobile .project-visual-media {
+  inset: -4% 0 -20% 48%;
+  transform: rotate(-8deg);
+}
+.project-visual-mobile .project-visual-media img {
+  filter: drop-shadow(0 1rem 1rem rgb(17 44 58 / 24%));
+  object-fit: contain;
+}
+.project-visual-mobile::before {
+  background: linear-gradient(90deg, #dcecf4 0%, #dcecf4 44%, transparent 85%);
+}
+.project-visual-mobile > .project-visual-index,
+.project-visual-mobile > .project-visual-type,
+.project-visual-mobile > strong {
+  color: #173849;
+}
+.project-visual-mobile strong {
+  font-size: clamp(1.35rem, 4vw, 3.5rem);
+  max-width: 48%;
 }
 .project-card-content {
   display: flex;
@@ -610,22 +663,106 @@ a {
   color: var(--muted);
   font-size: 0.88rem;
 }
-.learning-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 2.7rem;
-}
-.learning-column {
+.book-carousel,
+.learning-current {
   border-top: 1px solid var(--border);
+  margin-top: 2.7rem;
   padding-top: 1.2rem;
 }
-.learning-column h3 {
+.book-carousel-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.book-carousel-heading h3,
+.learning-current h3 {
   color: var(--brand);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
-  margin: 0 0 1.5rem;
+  margin: 0 0 0.5rem;
   text-transform: uppercase;
+}
+.book-carousel-heading p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0 0 1.5rem;
+}
+.book-carousel-controls {
+  display: flex;
+  gap: 0.35rem;
+}
+.book-carousel-controls button {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--foreground);
+  cursor: pointer;
+  display: inline-flex;
+  height: 2.4rem;
+  justify-content: center;
+  width: 2.4rem;
+}
+.book-carousel-controls button:hover {
+  background: var(--brand-soft);
+}
+.book-carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1.2rem;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--border) transparent;
+  scrollbar-width: thin;
+}
+.book-card {
+  flex: 0 0 clamp(11.75rem, 23vw, 15rem);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.book-card > a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+.book-cover {
+  align-items: center;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  display: flex;
+  height: 17rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.book-cover img {
+  object-fit: contain;
+  padding: 0.6rem;
+  transition: transform 350ms ease;
+}
+.book-card a:hover .book-cover img {
+  transform: scale(1.04);
+}
+.book-card-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin-top: 0.35rem;
+}
+.book-card-author {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.learning-current {
+  margin-top: 2rem;
+}
+.learning-current h3 {
+  margin-bottom: 1rem;
 }
 .learning-item {
   border-bottom: 1px solid var(--border);
@@ -905,8 +1042,7 @@ a {
     border-bottom: 0;
   }
   .project-grid,
-  .education-grid,
-  .learning-grid {
+  .education-grid {
     grid-template-columns: 1fr;
   }
   .project-card:first-child {
