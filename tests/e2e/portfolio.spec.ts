@@ -44,13 +44,24 @@ test("opens a case and exposes its evidence", async ({ page }) => {
     page.getByRole("heading", { level: 1, name: "Calculo Psicrometrico" }),
   ).toBeVisible();
   await expect(page.getByText("72,28 para 89,64")).toBeVisible();
+  await expect(page.getByText("≈3,6 mil")).toBeVisible();
+  await expect(
+    page.getByText("dispositivos ativos em julho de 2025"),
+  ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Ver na Google Play" }),
   ).toHaveAttribute("href", /play\.google\.com/);
   await expect(
+    page.getByRole("link", { name: "Ler o artigo no IFMG" }),
+  ).toHaveAttribute("href", /ifmg\.edu\.br/);
+  await expect(
     page.getByRole("heading", { name: "O produto em imagens" }),
   ).toBeVisible();
-  await expect(page.locator(".project-gallery-item img")).toHaveCount(3);
+  await expect(page.locator(".project-gallery-grid img")).toHaveCount(3);
+  await expect(
+    page.getByRole("heading", { name: "O que usuários disseram" }),
+  ).toBeVisible();
+  await expect(page.locator(".project-review-grid img")).toHaveCount(3);
 });
 
 test("shows project previews and navigable book covers", async ({ page }) => {

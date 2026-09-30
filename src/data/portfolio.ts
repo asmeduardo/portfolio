@@ -32,6 +32,17 @@ const projectSchema = z.object({
       caption: z.string().min(20),
     }),
   ),
+  reviewScreenshots: z
+    .array(
+      z.object({
+        src: z.string().startsWith("/projetos/"),
+        width: z.number().int().positive(),
+        height: z.number().int().positive(),
+        alt: z.string().min(20),
+        caption: z.string().min(20),
+      }),
+    )
+    .optional(),
 });
 
 const portfolioSchema = z.object({
@@ -113,7 +124,7 @@ export const portfolio = portfolioSchema.parse({
   },
   impact: [
     { value: "2+ anos", label: "de experiência em aplicações web" },
-    { value: "10 mil+", label: "downloads em produto publicado" },
+    { value: "≈3,6 mil", label: "dispositivos ativos em julho de 2025" },
     { value: "72,28 → 89,64", label: "evolução real na avaliação SUS" },
   ],
   skills: [
@@ -252,7 +263,7 @@ export const portfolio = portfolioSchema.parse({
       status: "Publicado",
       featured: true,
       metrics: [
-        { value: "10 mil+", label: "downloads na Google Play" },
+        { value: "≈3,6 mil", label: "dispositivos ativos em julho de 2025" },
         { value: "+17,36", label: "pontos na escala SUS" },
         { value: "89,64", label: "avaliação final de usabilidade" },
       ],
@@ -276,12 +287,17 @@ export const portfolio = portfolioSchema.parse({
       ],
       results: [
         "A pontuação média da System Usability Scale aumentou de 72,28 para 89,64, alcançando a faixa excelente.",
+        "Em julho de 2025, o artigo do projeto registrou cerca de 3.600 dispositivos ativos. Essa medida não equivale a usuários ativos mensais.",
         "O aplicativo mantém mais de 10 mil downloads na Google Play.",
       ],
       links: [
         {
           label: "Ver na Google Play",
           href: "https://play.google.com/store/apps/details?id=ifmg.grapsidroid&hl=pt_BR",
+        },
+        {
+          label: "Ler o artigo no IFMG",
+          href: "https://www.ifmg.edu.br/ourobranco/nossos-cursos/graduacao-6/anais_do_v_wsi_2025_compressed.pdf",
         },
       ],
       galleryLayout: "mobile",
@@ -309,6 +325,32 @@ export const portfolio = portfolioSchema.parse({
           alt: "Tela de simulação de processos do aplicativo Cálculo Psicrométrico.",
           title: "Simulação de processos",
           caption: "Fluxo de simulação publicado na Google Play.",
+        },
+      ],
+      reviewScreenshots: [
+        {
+          src: "/projetos/calculo-psicrometrico/avaliacao-julho-2025.png",
+          width: 1312,
+          height: 358,
+          alt: "Avaliação de cinco estrelas publicada na Google Play em 24 de julho de 2025.",
+          caption:
+            "Julho de 2025: avaliação publicada após a medição de usabilidade relatada no artigo.",
+        },
+        {
+          src: "/projetos/calculo-psicrometrico/avaliacao-maio-2024.png",
+          width: 1312,
+          height: 358,
+          alt: "Avaliação de cinco estrelas da Google Play que relata o uso do aplicativo no trabalho.",
+          caption:
+            "Maio de 2024: relato de uso profissional, anterior à avaliação do redesenho.",
+        },
+        {
+          src: "/projetos/calculo-psicrometrico/avaliacao-abril-2024.png",
+          width: 1312,
+          height: 436,
+          alt: "Avaliação de quatro estrelas da Google Play sobre o uso prático do aplicativo para ar-condicionado.",
+          caption:
+            "Abril de 2024: comentário sobre a praticidade do aplicativo, anterior ao redesenho.",
         },
       ],
     },
