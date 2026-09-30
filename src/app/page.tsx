@@ -17,9 +17,9 @@ export default function HomePage() {
     <main id="conteudo">
       <section className="hero section-shell" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">Engenharia de software com evidências</p>
+          <p className="eyebrow">Eduardo Melo · Engenheiro de software</p>
           <h1 id="hero-title">
-            Eu construo software confiável, do domínio à produção.
+            Software que resolve <em>problemas reais.</em>
           </h1>
           <p className="hero-lead">{portfolio.introduction}</p>
           <div className="hero-actions" aria-label="Ações principais">
@@ -38,11 +38,13 @@ export default function HomePage() {
             <MapPin aria-hidden="true" size={16} /> {portfolio.location}
           </p>
         </div>
-
-        <div className="hero-mark" aria-hidden="true">
-          <span>EM</span>
-          <div className="hero-orbit hero-orbit-one" />
-          <div className="hero-orbit hero-orbit-two" />
+        <div className="hero-aside" aria-label="Foco de atuação">
+          <span className="hero-aside-index">01 / ENGENHARIA APLICADA</span>
+          <div className="hero-aside-rule" />
+          <p>Do problema ao produto.</p>
+          <span className="hero-aside-detail">
+            Backend Java · interfaces web · entrega em produção
+          </span>
         </div>
       </section>
 
@@ -66,7 +68,7 @@ export default function HomePage() {
         <SectionHeading
           id="sobre-title"
           eyebrow="Sobre"
-          title="Base técnica para resolver problemas reais"
+          title="Da ideia ao software em uso."
         />
         <div className="about-grid">
           <div className="prose-copy">
@@ -97,9 +99,14 @@ export default function HomePage() {
         <SectionHeading
           id="projetos-title"
           eyebrow="Projetos"
-          title="Produtos e sistemas construídos com propósito"
-          description="Cada case apresenta contexto, decisões e resultados comprováveis. Projetos privados expõem apenas informações seguras."
+          title="Trabalhos selecionados."
+          description="Contexto, escolhas técnicas e resultados verificáveis. Os projetos privados são apresentados sem expor informações confidenciais."
         />
+        <p className="current-project-note">
+          <span aria-hidden="true" /> Projeto em andamento:{" "}
+          <strong>VigorU</strong> — plataforma web e mobile para acompanhar
+          treinos.
+        </p>
         <div className="project-grid">
           {portfolio.projects
             .filter((project) => project.featured)
@@ -117,7 +124,7 @@ export default function HomePage() {
         <SectionHeading
           id="experiencia-title"
           eyebrow="Experiência"
-          title="Software entregue em contexto real"
+          title="Experiência em contextos reais."
         />
         <div className="timeline">
           {portfolio.experience.map((item) => (
@@ -149,7 +156,7 @@ export default function HomePage() {
         <SectionHeading
           id="formacao-title"
           eyebrow="Formação"
-          title="Fundamentos e especialização"
+          title="Formação e aprendizado contínuo."
         />
         <div className="education-grid">
           {portfolio.education.map((item) => (
@@ -163,15 +170,109 @@ export default function HomePage() {
       </section>
 
       <section
+        className="section-shell content-section"
+        id="cursos"
+        aria-labelledby="cursos-title"
+      >
+        <SectionHeading
+          id="cursos-title"
+          eyebrow="Cursos"
+          title="Estudo aplicado à prática."
+        />
+        <div className="learning-grid">
+          <div className="learning-column">
+            <h3>Concluídos</h3>
+            {portfolio.learning.courses.completed.map((course) => (
+              <article className="learning-item" key={course.title}>
+                <strong>{course.title}</strong>
+                <span>{course.provider}</span>
+              </article>
+            ))}
+          </div>
+          <div className="learning-column">
+            <h3>Em andamento</h3>
+            {portfolio.learning.courses.current.length ? (
+              portfolio.learning.courses.current.map((course) => (
+                <article className="learning-item" key={course.title}>
+                  <strong>{course.title}</strong>
+                  <span>{course.provider}</span>
+                </article>
+              ))
+            ) : (
+              <p className="learning-empty">
+                Nenhum curso em andamento informado.
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="section-shell content-section"
+        id="leituras"
+        aria-labelledby="leituras-title"
+      >
+        <SectionHeading
+          id="leituras-title"
+          eyebrow="Leituras"
+          title="Ideias que levo para o código."
+        />
+        <div className="learning-grid">
+          <div className="learning-column">
+            <h3>Lidos e estudados</h3>
+            {portfolio.learning.books.completed.length ? (
+              portfolio.learning.books.completed.map((book) => (
+                <article className="learning-item" key={book.title}>
+                  <a
+                    href={book.href}
+                    rel="noreferrer"
+                    target="_blank"
+                    aria-label={`Ver ${book.title} na Amazon`}
+                  >
+                    <strong>{book.title}</strong>
+                    <ArrowRight aria-hidden="true" size={17} />
+                  </a>
+                  <span>{book.author}</span>
+                </article>
+              ))
+            ) : (
+              <p className="learning-empty">
+                Lista de leituras em organização.
+              </p>
+            )}
+          </div>
+          <div className="learning-column">
+            <h3>Lendo agora</h3>
+            {portfolio.learning.books.current.length ? (
+              portfolio.learning.books.current.map((book) => (
+                <article className="learning-item" key={book.title}>
+                  <a
+                    href={book.href}
+                    rel="noreferrer"
+                    target="_blank"
+                    aria-label={`Ver ${book.title} na Amazon`}
+                  >
+                    <strong>{book.title}</strong>
+                    <ArrowRight aria-hidden="true" size={17} />
+                  </a>
+                  <span>{book.author}</span>
+                </article>
+              ))
+            ) : (
+              <p className="learning-empty">Leitura atual em atualização.</p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section
         className="section-shell contact-section"
         id="contato"
         aria-labelledby="contato-title"
       >
         <div>
           <p className="eyebrow">Contato</p>
-          <h2 id="contato-title">
-            Vamos conversar sobre software bem construído.
-          </h2>
+          <h2 id="contato-title">Vamos construir algo que faça sentido.</h2>
           <p>
             Estou disponível para oportunidades em engenharia de software,
             backend Java e full stack.

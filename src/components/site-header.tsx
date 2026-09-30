@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const navigation = [
-  { label: "Sobre", href: "/#sobre" },
   { label: "Projetos", href: "/#projetos" },
+  { label: "Sobre", href: "/#sobre" },
   { label: "Experiência", href: "/#experiencia" },
   { label: "Contato", href: "/#contato" },
 ] as const;
@@ -18,7 +18,7 @@ export function SiteHeader() {
           href="/"
           aria-label="Página inicial de Eduardo Melo"
         >
-          <span aria-hidden="true">EM</span>
+          <span aria-hidden="true">em.</span>
           <strong>Eduardo Melo</strong>
         </Link>
         <nav aria-label="Navegação principal">

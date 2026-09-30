@@ -59,6 +59,6 @@ O site não possui banco de dados, autenticação, formulário ou scripts de ras
 
 Consulte [SECURITY.md](SECURITY.md) para reportar vulnerabilidades.
 
-## Licença e template
+## Licença e referências visuais
 
-A estrutura visual partiu do template público Magic UI Portfolio. A atribuição e a licença MIT estão registradas em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) e [LICENSE](LICENSE).
+A base inicial usou o template público Magic UI Portfolio; sua atribuição está em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). O redesenho editorial toma o [Paperframe](https://github.com/Afeng01/paperframe) como referência de hierarquia tipográfica e composição, sem copiar seus componentes ou arquivos. O código deste repositório permanece sob a licença em [LICENSE](LICENSE).
