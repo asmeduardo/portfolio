@@ -21,8 +21,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </span>
       </div>
       <div className="project-visual" aria-hidden="true">
-        <span>{String(index + 1).padStart(2, "0")}</span>
-        <div />
+        <span className="project-visual-index">
+          {String(index + 1).padStart(2, "0")} / 03
+        </span>
+        <strong>{project.title}</strong>
+        <span className="project-visual-type">{project.eyebrow}</span>
       </div>
       <div className="project-card-content">
         <h3>{project.title}</h3>

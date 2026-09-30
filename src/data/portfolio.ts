@@ -54,6 +54,28 @@ const portfolioSchema = z.object({
       period: z.string().min(1),
     }),
   ),
+  learning: z.object({
+    courses: z.object({
+      completed: z.array(z.object({ title: z.string(), provider: z.string() })),
+      current: z.array(z.object({ title: z.string(), provider: z.string() })),
+    }),
+    books: z.object({
+      completed: z.array(
+        z.object({
+          title: z.string(),
+          author: z.string(),
+          href: z.string().url(),
+        }),
+      ),
+      current: z.array(
+        z.object({
+          title: z.string(),
+          author: z.string(),
+          href: z.string().url(),
+        }),
+      ),
+    }),
+  }),
   projects: z.array(projectSchema).min(1),
 });
 
@@ -153,12 +175,54 @@ export const portfolio = portfolioSchema.parse({
       course: "Bacharelado em Sistemas de Informação",
       period: "mai/2021 — jan/2026",
     },
-    {
-      institution: "DevSuperior",
-      course: "Java Spring Profissional",
-      period: "nov/2024 — jun/2025",
-    },
   ],
+  learning: {
+    courses: {
+      completed: [
+        { title: "Java Spring Profissional", provider: "DevSuperior" },
+        {
+          title: "The Complete JavaScript Course",
+          provider: "Udemy · Jonas Schmedtmann",
+        },
+      ],
+      current: [],
+    },
+    books: {
+      completed: [
+        {
+          title: "Código Limpo",
+          author: "Robert C. Martin",
+          href: "https://www.amazon.com.br/s?k=9788576082675",
+        },
+        {
+          title: "Arquitetura Limpa",
+          author: "Robert C. Martin",
+          href: "https://www.amazon.com.br/s?k=9788550804606",
+        },
+        {
+          title: "Refatoração",
+          author: "Martin Fowler",
+          href: "https://www.amazon.com.br/s?k=9788575227244",
+        },
+        {
+          title: "Domain-Driven Design",
+          author: "Eric Evans",
+          href: "https://www.amazon.com.br/s?k=9788550800653",
+        },
+        {
+          title: "Padrões de Projeto",
+          author: "Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides",
+          href: "https://www.amazon.com.br/s?k=9788573076103",
+        },
+        {
+          title: "O Programador Pragmático",
+          author: "Andrew Hunt e David Thomas",
+          href: "https://www.amazon.com.br/s?k=9788582606872",
+        },
+      ],
+      current: [],
+    },
+  },
   projects: [
     {
       slug: "calculo-psicrometrico",
@@ -264,39 +328,6 @@ export const portfolio = portfolioSchema.parse({
       ],
       results: [
         "O desenvolvimento permanece ativo; resultados de uso serão publicados somente quando houver evidências verificáveis.",
-      ],
-      links: [],
-    },
-    {
-      slug: "radar-de-vagas",
-      title: "Radar de Vagas",
-      eyebrow: "Automação e rastreabilidade",
-      summary:
-        "Plataforma privada para descobrir oportunidades, avaliar aderência e acompanhar candidaturas com evidências.",
-      status: "Em desenvolvimento",
-      featured: true,
-      metrics: [],
-      technologies: [
-        "Java",
-        "Spring Boot",
-        "PostgreSQL",
-        "React",
-        "TypeScript",
-        "Playwright",
-        "CI/CD",
-      ],
-      problem: [
-        "A busca distribuída em diversas fontes torna difícil acompanhar oportunidades, decisões e estados de candidatura.",
-      ],
-      contribution: [
-        "Desenvolvo a modelagem de domínio, o backend, a interface e os fluxos automatizados de descoberta e acompanhamento.",
-      ],
-      decisions: [
-        "Cada candidatura possui estado, próxima ação e evidência; um envio só é confirmado quando o portal apresenta um estado terminal verificável.",
-        "Dados pessoais, sessões autenticadas, regras operacionais e código do produto permanecem privados.",
-      ],
-      results: [
-        "O produto está em evolução contínua; o portfólio descreve a engenharia sem divulgar dados pessoais ou prometer resultados não confirmados.",
       ],
       links: [],
     },

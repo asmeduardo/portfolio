@@ -11,9 +11,11 @@ describe("portfolio data", () => {
   });
 
   it("does not publish a telephone number", () => {
-    expect(JSON.stringify(portfolio)).not.toMatch(
-      /\(?\d{2}\)?\s?9?\d{4}[-\s]?\d{4}/,
+    const publicContent = JSON.stringify(portfolio).replaceAll(
+      /amazon\.com\.br\/s\?k=\d{13}/g,
+      "amazon.com.br/s?k=ISBN",
     );
+    expect(publicContent).not.toMatch(/\(?\d{2}\)?\s?9?\d{4}[-\s]?\d{4}/);
   });
 
   it("marks every private case explicitly", () => {

@@ -12,16 +12,25 @@ test("presents the professional home page without accessibility violations", asy
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "software confiável",
+    "problemas reais",
   );
   await expect(
     page.getByRole("heading", {
-      name: "Produtos e sistemas construídos com propósito",
+      name: "Trabalhos selecionados.",
     }),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Baixar currículo" }),
   ).toHaveAttribute("href", "/eduardo-melo-curriculo.pdf");
+  await expect(
+    page.getByRole("heading", { name: "Estudo aplicado à prática." }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Ideias que levo para o código." }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Ver Código Limpo na Amazon" }),
+  ).toHaveAttribute("href", /amazon\.com\.br\/s\?k=/);
 
   const accessibility = await new AxeBuilder({ page }).analyze();
   expect(accessibility.violations).toEqual([]);
@@ -53,5 +62,29 @@ test("renders the custom not-found page", async ({ page }) => {
   expect(response?.status()).toBe(404);
   await expect(
     page.getByRole("heading", { name: "Esta página não foi encontrada." }),
+  ).toBeVisible();
+});
+
+test("does not expose the private job bot as a portfolio case", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.getByText("Radar de Vagas")).toHaveCount(0);
+  const response = await page.goto("/projetos/radar-de-vagas");
+  expect(response?.status()).toBe(404);
+});
+
+test("keeps content readable without horizontal overflow", async ({ page }) => {
+  await page.goto("/");
+  const viewportWidth = page.viewportSize()?.width;
+  const documentWidth = await page.evaluate(
+    () => document.documentElement.scrollWidth,
+  );
+  expect(documentWidth).toBeLessThanOrEqual(viewportWidth ?? 0);
+  await expect(
+    page.getByRole("navigation", { name: "Navegação principal" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Projetos", exact: true }),
   ).toBeVisible();
 });
