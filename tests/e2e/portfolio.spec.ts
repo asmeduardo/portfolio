@@ -47,6 +47,32 @@ test("opens a case and exposes its evidence", async ({ page }) => {
   await expect(
     page.getByRole("link", { name: "Ver na Google Play" }),
   ).toHaveAttribute("href", /play\.google\.com/);
+  await expect(
+    page.getByRole("heading", { name: "O produto em imagens" }),
+  ).toBeVisible();
+  await expect(page.locator(".project-gallery-item img")).toHaveCount(3);
+});
+
+test("shows sanitized ECOTRES screenshots without presenting demo data as real results", async ({
+  page,
+}) => {
+  await page.goto("/projetos/sistemas-ecotres");
+
+  await expect(
+    page.getByRole("heading", { name: "O produto em imagens" }),
+  ).toBeVisible();
+  await expect(page.locator(".project-gallery-item img")).toHaveCount(4);
+  await expect(
+    page.getByText("Os dados exibidos são fictícios."),
+  ).toBeVisible();
+  await expect(page.getByText("O progresso exibido é fictício.")).toBeVisible();
+
+  for (const image of await page.locator(".project-gallery-item img").all()) {
+    await expect(image).toHaveJSProperty("complete", true);
+    expect(
+      await image.evaluate((element: HTMLImageElement) => element.naturalWidth),
+    ).toBeGreaterThan(0);
+  }
 });
 
 test("returns the public resume", async ({ request }) => {

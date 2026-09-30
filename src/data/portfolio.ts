@@ -21,6 +21,17 @@ const projectSchema = z.object({
   decisions: z.array(z.string().min(20)).min(1),
   results: z.array(z.string().min(20)).min(1),
   links: z.array(linkSchema),
+  galleryLayout: z.enum(["mobile", "desktop"]),
+  gallery: z.array(
+    z.object({
+      src: z.string().startsWith("/projetos/"),
+      width: z.number().int().positive(),
+      height: z.number().int().positive(),
+      alt: z.string().min(20),
+      title: z.string().min(1),
+      caption: z.string().min(20),
+    }),
+  ),
 });
 
 const portfolioSchema = z.object({
@@ -265,6 +276,33 @@ export const portfolio = portfolioSchema.parse({
           href: "https://play.google.com/store/apps/details?id=ifmg.grapsidroid&hl=pt_BR",
         },
       ],
+      galleryLayout: "mobile",
+      gallery: [
+        {
+          src: "/projetos/calculo-psicrometrico/inicio-google-play.jpg",
+          width: 956,
+          height: 1920,
+          alt: "Tela inicial do aplicativo Cálculo Psicrométrico com acesso aos cálculos e simulações.",
+          title: "Visão inicial",
+          caption: "Tela inicial publicada na Google Play.",
+        },
+        {
+          src: "/projetos/calculo-psicrometrico/ponto-estado-google-play.jpg",
+          width: 956,
+          height: 1920,
+          alt: "Formulário do aplicativo para calcular propriedades do ar a partir dos dados de entrada.",
+          title: "Ponto de estado",
+          caption: "Entrada de parâmetros publicada na Google Play.",
+        },
+        {
+          src: "/projetos/calculo-psicrometrico/simulacao-google-play.jpg",
+          width: 956,
+          height: 1920,
+          alt: "Tela de simulação de processos do aplicativo Cálculo Psicrométrico.",
+          title: "Simulação de processos",
+          caption: "Fluxo de simulação publicado na Google Play.",
+        },
+      ],
     },
     {
       slug: "sistemas-ecotres",
@@ -298,6 +336,45 @@ export const portfolio = portfolioSchema.parse({
         "O sistema de frota substituiu planilhas impressas no arquivamento, no agendamento e no início das viagens.",
       ],
       links: [],
+      galleryLayout: "desktop",
+      gallery: [
+        {
+          src: "/projetos/ecotres/aterro-demonstracao.png",
+          width: 1672,
+          height: 941,
+          alt: "Painel demonstrativo do aterro, com indicadores de operação e gráficos de permanência.",
+          title: "Operação do aterro",
+          caption:
+            "Indicadores e gráficos para acompanhar os registros e o tempo de permanência. Os números são fictícios.",
+        },
+        {
+          src: "/projetos/ecotres/frota-demonstracao.png",
+          width: 1640,
+          height: 959,
+          alt: "Painel demonstrativo do sistema de frota, com indicadores de viagens e veículos.",
+          title: "Gestão de frota",
+          caption:
+            "Painel com indicadores de viagens e disponibilidade da frota. Os dados exibidos são fictícios.",
+        },
+        {
+          src: "/projetos/ecotres/ecoselo-demonstracao.png",
+          width: 1474,
+          height: 1067,
+          alt: "Tela demonstrativa dos módulos de treinamento e do progresso na plataforma EcoSelo.",
+          title: "Capacitação no EcoSelo",
+          caption:
+            "Trilha de treinamento com módulos e atividades. O progresso exibido é fictício.",
+        },
+        {
+          src: "/projetos/ecotres/patrimonio-cadastro.png",
+          width: 1253,
+          height: 865,
+          alt: "Primeira etapa do cadastro de patrimônio, com área para envio de imagens.",
+          title: "Cadastro patrimonial",
+          caption:
+            "Etapa de envio de imagens no cadastro de patrimônio, sem registros internos expostos.",
+        },
+      ],
     },
     {
       slug: "vigoru",
@@ -330,6 +407,8 @@ export const portfolio = portfolioSchema.parse({
         "O desenvolvimento permanece ativo; resultados de uso serão publicados somente quando houver evidências verificáveis.",
       ],
       links: [],
+      galleryLayout: "desktop",
+      gallery: [],
     },
   ],
 });

@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowUpRight, LockKeyhole } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -102,6 +103,58 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ))}
       </ul>
 
+      {project.gallery.length > 0 ? (
+        <section
+          className="project-gallery"
+          aria-labelledby="project-gallery-title"
+        >
+          <div className="project-gallery-heading">
+            <p className="eyebrow">Interfaces</p>
+            <h2 id="project-gallery-title">O produto em imagens</h2>
+            {project.status === "Publicado" ? (
+              <p>
+                Capturas oficiais do aplicativo, disponíveis na Google Play.
+              </p>
+            ) : (
+              <p>
+                Capturas ilustrativas de sistemas privados. Dados pessoais e
+                operacionais foram removidos ou substituídos por exemplos.
+              </p>
+            )}
+          </div>
+          <div
+            className={`project-gallery-grid project-gallery-grid-${project.galleryLayout}`}
+          >
+            {project.gallery.map((item) => (
+              <figure className="project-gallery-item" key={item.src}>
+                <a
+                  aria-label={`Ampliar imagem: ${item.title}`}
+                  href={item.src}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image
+                    alt={item.alt}
+                    height={item.height}
+                    sizes={
+                      project.galleryLayout === "mobile"
+                        ? "(max-width: 440px) 78vw, 30vw"
+                        : "(max-width: 920px) 100vw, 45vw"
+                    }
+                    src={item.src}
+                    width={item.width}
+                  />
+                </a>
+                <figcaption>
+                  <strong>{item.title}</strong>
+                  <span>{item.caption}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <div className="case-sections">
         {sections.map((section, index) => (
           <section
@@ -137,14 +190,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       ) : null}
 
-      <aside className="privacy-note">
-        <LockKeyhole aria-hidden="true" size={20} />
-        <p>
-          Este case respeita confidencialidade e propriedade intelectual.
-          Informações internas, credenciais, dados pessoais e código privado não
-          são publicados.
-        </p>
-      </aside>
+      {project.status !== "Publicado" ? (
+        <aside className="privacy-note">
+          <LockKeyhole aria-hidden="true" size={20} />
+          <p>
+            Este case respeita confidencialidade e propriedade intelectual.
+            Informações internas, credenciais, dados pessoais e código privado
+            não são publicados.
+          </p>
+        </aside>
+      ) : null}
 
       <script
         type="application/ld+json"
