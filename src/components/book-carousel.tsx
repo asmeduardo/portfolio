@@ -53,7 +53,15 @@ export function BookCarousel({ books }: BookCarouselProps) {
     const root = rootRef.current;
     root?.setAttribute("data-ready", "true");
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => setReducedMotion(preference.matches);
+    const updatePreference = () => {
+      setReducedMotion(preference.matches);
+      if (preference.matches) {
+        const track = trackRef.current;
+        if (track) {
+          track.scrollTo({ left: track.scrollLeft, behavior: "instant" });
+        }
+      }
+    };
     updatePreference();
     preference.addEventListener("change", updatePreference);
     return () => {
