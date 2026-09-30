@@ -155,6 +155,43 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
       ) : null}
 
+      {project.reviewScreenshots?.length ? (
+        <section
+          className="project-gallery project-review-gallery"
+          aria-labelledby="project-review-title"
+        >
+          <div className="project-gallery-heading">
+            <p className="eyebrow">Avaliações públicas</p>
+            <h2 id="project-review-title">O que usuários disseram</h2>
+            <p>
+              Capturas da Google Play, com datas preservadas. Os comentários
+              anteriores ao redesenho não avaliam a versão atual.
+            </p>
+          </div>
+          <div className="project-review-grid">
+            {project.reviewScreenshots.map((item) => (
+              <figure className="project-gallery-item" key={item.src}>
+                <a
+                  aria-label={`Ampliar avaliação: ${item.caption}`}
+                  href={item.src}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image
+                    alt={item.alt}
+                    height={item.height}
+                    sizes="(max-width: 840px) 100vw, 800px"
+                    src={item.src}
+                    width={item.width}
+                  />
+                </a>
+                <figcaption>{item.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <div className="case-sections">
         {sections.map((section, index) => (
           <section

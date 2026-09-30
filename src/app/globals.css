@@ -904,6 +904,12 @@ a {
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.project-review-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 50rem;
+}
 .project-gallery-item {
   border: 1px solid var(--border);
   margin: 0;
