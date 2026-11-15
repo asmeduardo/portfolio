@@ -19,6 +19,22 @@ describe("portfolio data", () => {
     expect(portfolio.about[0]).toContain("cofundador de um SaaS");
     expect(JSON.stringify(portfolio)).not.toMatch(/2\+ anos|dois anos/);
   });
+  it("presents Vigoru as the launched product described in the résumé", () => {
+    const vigoru = getProject("vigoru");
+
+    expect(vigoru?.title).toBe("Vigoru");
+    expect(vigoru?.status).toBe("Lançado");
+    expect(vigoru?.privateCode).toBe(true);
+    expect(vigoru?.technologies).toEqual(
+      expect.arrayContaining(["Java 21", "Spring Boot", "Capacitor"]),
+    );
+    expect(vigoru?.technologies).not.toContain("Flutter");
+    expect(vigoru?.links.map((link) => link.href)).toContain(
+      "https://vigoru.fit",
+    );
+    expect(JSON.stringify(vigoru)).not.toMatch(/não é lançado|VigorU/);
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
