@@ -1,0 +1,41 @@
+name: eduardo-portfolio
+services:
+  web:
+    image: ${PORTFOLIO_IMAGE:?Set an immutable portfolio image}
+    restart: unless-stopped
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cgroup_parent: portfolio.slice
+    mem_limit: 384m
+    memswap_limit: 384m
+    cpus: 0.2
+    pids_limit: 64
+    ports: ["127.0.0.1:18182:3000"]
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=16m
+      - /app/.next/cache:rw,noexec,nosuid,nodev,size=48m,uid=1000,gid=1000
+    networks: [web]
+    environment:
+      NODE_OPTIONS: --max-old-space-size=192
+    healthcheck:
+      test:
+        [
+          CMD,
+          node,
+          -e,
+          "fetch('http://127.0.0.1:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: "3"
+networks:
+  web:
+    name: eduardo-portfolio-web

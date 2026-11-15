@@ -36,6 +36,8 @@ jobs:
 
       - name: Validar projeto
         run: npm run check
+      - name: Validar isolamento da infraestrutura
+        run: python3 ops/test_isolation.py
 
   e2e:
     name: Navegadores e acessibilidade
@@ -67,50 +69,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
-
-  deploy:
-    name: Publicar na Netlify
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [quality, e2e]
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    environment:
-      name: production
-      url: https://eduardomelo.dev
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-
-      - name: Instalar dependências
-        run: npm ci
-
-      - name: Confirmar destino de produção
-        run: |
-          if [ "$NETLIFY_SITE_ID" != "ee693f31-de68-4e88-80a7-b4c6ce54bc2e" ]; then
-            echo "::error::O destino Netlify não é o site do portfólio."
-            exit 1
-          fi
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      - name: Publicar versão validada
-        run: npx --yes netlify-cli@27.8.1 deploy --prod --build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --message "GitHub Actions ${GITHUB_SHA}"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      - name: Conferir conteúdo publicado
-        run: |
-          page="$(mktemp)"
-          trap 'rm -f "$page"' EXIT
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 \
-            --output "$page" https://eduardo-melo-portfolio.netlify.app/
-          grep -Fq '<title>Eduardo Melo — Engenheiro de Software</title>' "$page"
-          curl --fail --silent --show-error --output /dev/null \
-            https://eduardo-melo-portfolio.netlify.app/eduardo-melo-curriculo.pdf

@@ -1,0 +1,9 @@
+[Unit]
+Description=Temporary portfolio build resource budget
+[Slice]
+CPUQuota=50%
+CPUWeight=10
+MemoryMax=1792M
+MemorySwapMax=0
+IOWeight=10
+TasksMax=256

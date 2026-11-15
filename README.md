@@ -20,7 +20,7 @@ O site foi construído para permitir que recrutadores e equipes técnicas compre
 - Vitest para testes unitários;
 - Playwright e axe-core para fluxos ponta a ponta e acessibilidade;
 - GitHub Actions para CI e CodeQL;
-- Netlify para previews e produção.
+- Contabo com Docker, runtime standalone e proxy reverso HTTPS.
 
 ## Desenvolvimento local
 
@@ -51,7 +51,7 @@ O projeto usa uma estratégia trunk-based:
 - mudanças usam branches curtas e pull requests;
 - o CI executa auditoria de dependências, verificações estáticas, testes e build;
 - o CodeQL executa SAST em pushes, pull requests e semanalmente;
-- o Netlify cria previews e só publica uma versão cujo próprio build execute o gate `npm run check`.
+- O deploy na Contabo segue o gate `npm run verify`; o GitHub executa CI sem publicar no antigo provedor.
 
 ## Segurança e privacidade
 
