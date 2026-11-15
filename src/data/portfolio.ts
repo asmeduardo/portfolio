@@ -111,12 +111,12 @@ export const portfolio = portfolioSchema.parse({
   name: "Eduardo de Melo",
   title: "Desenvolvedor de Software",
   role: "Desenvolvedor de Software | Java, Spring Boot e APIs REST",
-  location: "Minas Gerais, Brasil",
+  location: "Ouro Branco, MG",
   email: "eduardo.melo01992@gmail.com",
   introduction:
     "Desenvolvo aplicações web com foco em backend Java, segurança, testes e entrega contínua. Também construo interfaces em React para acompanhar o produto de ponta a ponta.",
   about: [
-    "Sou bacharel em Sistemas de Informação e tenho mais de dois anos de experiência no desenvolvimento, na implantação e na manutenção de aplicações web para órgãos públicos.",
+    "Sou bacharel em Sistemas de Informação, com cerca de 3 anos de experiência em desenvolvimento no setor público e como cofundador de um SaaS próprio.",
     "Atuo da modelagem dos dados à entrega em produção. No backend, trabalho com Java, Spring Boot, APIs REST e bancos relacionais. No frontend, uso React e TypeScript para integrar jornadas completas com clareza e acessibilidade.",
     "Procuro oportunidades como Desenvolvedor de Software, Desenvolvedor Backend Java ou Desenvolvedor Full Stack com predominância de Java, nos níveis júnior ou pleno.",
   ],
@@ -125,7 +125,7 @@ export const portfolio = portfolioSchema.parse({
     linkedin: "https://www.linkedin.com/in/meloeduardo92",
   },
   impact: [
-    { value: "2+ anos", label: "de experiência em aplicações web" },
+    { value: "≈3 anos", label: "de experiência em desenvolvimento" },
     { value: "10 mil+", label: "downloads na Google Play" },
     {
       value: "≈3,6 mil",
