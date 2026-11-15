@@ -67,6 +67,25 @@ describe("portfolio data", () => {
     ).toBeGreaterThanOrEqual(3);
   });
 
+  it("describes the city hall internship with the résumé achievements", () => {
+    const cityHall = portfolio.experience.find((item) =>
+      item.organization.includes("Ouro Branco"),
+    );
+    const text = JSON.stringify(cityHall);
+
+    for (const fact of [
+      "SIGA",
+      "multi-tenant",
+      "500 acessos",
+      "IPTU Verde",
+      "320 requerimentos",
+      "IDOR/BOLA",
+      "RBAC",
+    ]) {
+      expect(text).toContain(fact);
+    }
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
