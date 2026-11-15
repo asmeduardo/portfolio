@@ -141,6 +141,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         ? "(max-width: 440px) 78vw, 30vw"
                         : "(max-width: 920px) 100vw, 45vw"
                     }
+                    // The gallery is the main evidence of a case and has at most a few images; lazy loading left
+                    // some of them blank after scrolling.
+                    loading="eager"
                     src={item.src}
                     width={item.width}
                   />
