@@ -168,11 +168,12 @@ describe("portfolio data", () => {
 
     expect(privateCode).not.toHaveLength(0);
     for (const project of privateCode) {
+      const hosts = project.links.map((link) => new URL(link.href).hostname);
       expect(
-        project.links.every(
-          (link) => !new URL(link.href).hostname.endsWith("github.com"),
+        hosts.some(
+          (host) => host === "github.com" || host.endsWith(".github.com"),
         ),
-      ).toBe(true);
+      ).toBe(false);
     }
   });
 });
