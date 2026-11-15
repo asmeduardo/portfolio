@@ -125,6 +125,16 @@ describe("portfolio data", () => {
     }
   });
 
+  it("states the résumé language level", () => {
+    expect(portfolio.languages).toEqual([
+      {
+        language: "Inglês",
+        level:
+          "leitura e escrita técnica; compreensão oral e conversação básica",
+      },
+    ]);
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 

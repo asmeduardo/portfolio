@@ -147,6 +147,28 @@ test("rotates book covers automatically and respects reduced motion", async ({
   ).toBeLessThan(8);
 });
 
+test("shows education, language and courses without empty placeholders", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  await expect(
+    page
+      .getByRole("navigation", { name: "Navegação principal" })
+      .getByRole("link", { name: "Formação" }),
+  ).toHaveAttribute("href", "/#formacao");
+  await expect(page.locator("#formacao")).toContainText("Inglês");
+  await expect(page.locator("#formacao")).toContainText(
+    "leitura e escrita técnica; compreensão oral e conversação básica",
+  );
+  await expect(
+    page.getByText("Nenhum curso em andamento informado."),
+  ).toHaveCount(0);
+  await expect(page.locator("#cursos")).toContainText(
+    "The Complete JavaScript Course",
+  );
+});
+
 test("locks only private products and explains private code on launched ones", async ({
   page,
 }) => {

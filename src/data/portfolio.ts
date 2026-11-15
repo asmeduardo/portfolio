@@ -72,6 +72,9 @@ const portfolioSchema = z.object({
       highlights: z.array(z.string().min(20)).min(1),
     }),
   ),
+  languages: z.array(
+    z.object({ language: z.string().min(1), level: z.string().min(1) }),
+  ),
   education: z.array(
     z.object({
       institution: z.string().min(1),
@@ -232,6 +235,12 @@ export const portfolio = portfolioSchema.parse({
         "Criei o módulo IPTU Verde (projeto vencedor do processo seletivo do estágio), que levou para o on-line os pedidos de desconto de até 10% no IPTU por práticas sustentáveis; mais de 320 requerimentos realizados.",
         "Identifiquei e corrigi uma vulnerabilidade crítica de IDOR/BOLA que expunha requerimentos de outros cidadãos pela troca do ID na URL, aplicando verificação de autorização no servidor e permissões de visualização e edição (RBAC).",
       ],
+    },
+  ],
+  languages: [
+    {
+      language: "Inglês",
+      level: "leitura e escrita técnica; compreensão oral e conversação básica",
     },
   ],
   education: [
