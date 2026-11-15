@@ -184,7 +184,7 @@ export const portfolio = portfolioSchema.parse({
         "SaaS de treinamento lançado na web, Android e iOS, com gestão de alunos, treinos, nutrição, agenda, pagamentos e vitrine de personais.",
       highlights: [
         "Cofundei e desenvolvo o Vigoru, SaaS de treinamento recém-lançado na web, Android e iOS.",
-        "Desenvolvi APIs REST com Java 21, Spring Boot e PostgreSQL; construí a aplicação multiplataforma em React, TypeScript e Capacitor.",
+        "Liderei a arquitetura e desenvolvi as APIs REST com Java 21, Spring Boot e PostgreSQL; construí a aplicação multiplataforma em React, TypeScript e Capacitor.",
         "Implementei testes automatizados com JUnit, Mockito, Testcontainers, Vitest e Playwright; implantação com Docker em VPS Linux e monitoramento com Grafana, Sentry e Better Stack.",
       ],
     },
@@ -503,7 +503,7 @@ export const portfolio = portfolioSchema.parse({
       ],
       contribution: [
         "Cofundei e desenvolvo o Vigoru, com gestão de alunos, treinos, nutrição, agenda, pagamentos e vitrine de personais.",
-        "Desenvolvi APIs REST com Java 21, Spring Boot e PostgreSQL e construí a aplicação multiplataforma em React, TypeScript e Capacitor.",
+        "Liderei a arquitetura e desenvolvi as APIs REST com Java 21, Spring Boot e PostgreSQL; construí a aplicação multiplataforma em React, TypeScript e Capacitor.",
         "Implementei testes automatizados com JUnit, Mockito, Testcontainers, Vitest e Playwright.",
       ],
       decisions: [

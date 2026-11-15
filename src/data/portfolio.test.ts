@@ -42,6 +42,12 @@ describe("portfolio data", () => {
     expect(current.role).toBe("Cofundador e Desenvolvedor");
     expect(current.period).toBe("abr/2026 — atual");
     expect(current.highlights).toHaveLength(3);
+    expect(current.highlights[1]).toMatch(/^Liderei a arquitetura/);
+    expect(
+      getProject("vigoru")?.contribution.some((item) =>
+        item.startsWith("Liderei a arquitetura"),
+      ),
+    ).toBe(true);
   });
 
   it("describes ECOTRES with the systems and figures of the résumé", () => {
