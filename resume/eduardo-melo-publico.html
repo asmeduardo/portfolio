@@ -2,105 +2,98 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Currículo - Eduardo Alessandro Santana de Melo</title>
+    <title>
+      Eduardo Alessandro Santana de Melo - Desenvolvedor de Software Java
+    </title>
+    <meta name="author" content="Eduardo Alessandro Santana de Melo" />
+    <meta
+      name="keywords"
+      content="Java, Spring Boot, APIs REST, Kafka, PostgreSQL, React, TypeScript, Docker, CI/CD, Testes automatizados"
+    />
     <style>
       @page {
         size: A4;
-        margin: 11mm 13mm 10mm;
+        margin: 10mm 12mm 9mm;
       }
       * {
         box-sizing: border-box;
       }
       body {
         margin: 0;
-        color: #172033;
-        background: #fff;
-        font-family: "Liberation Sans", Arial, sans-serif;
-        font-size: 9.25pt;
-        line-height: 1.28;
+        color: #111;
+        font-family: Arial, "Liberation Sans", sans-serif;
+        font-size: 9pt;
+        line-height: 1.3;
       }
       header {
-        border-bottom: 2px solid #183b5b;
-        padding-bottom: 7px;
+        text-align: center;
       }
       h1 {
-        margin: 0 0 2px;
-        color: #102a43;
-        font-size: 20pt;
-        line-height: 1.05;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18.5pt;
+        font-variant: small-caps;
+        letter-spacing: 0.02em;
       }
       .role {
-        color: #185a7d;
-        font-size: 11.5pt;
-        font-weight: 700;
+        font-style: italic;
+        font-size: 10pt;
+        margin-top: 1px;
       }
       .contact {
-        margin-top: 5px;
-        color: #394b59;
-        font-size: 8.6pt;
+        font-size: 8.1pt;
+        margin-top: 2px;
+        white-space: nowrap;
       }
       .contact a {
         color: inherit;
-        text-decoration: none;
-      }
-      section {
-        margin-top: 8px;
       }
       h2 {
-        margin: 0 0 4px;
-        color: #183b5b;
-        font-size: 10pt;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 11pt;
+        margin: 7px 0 3px;
+        padding-bottom: 1px;
+        border-bottom: 1.2px solid #111;
       }
       p {
         margin: 0;
       }
-      .skills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2px 16px;
-      }
-      .skills p {
-        break-inside: avoid;
-      }
       .item {
-        margin-top: 5px;
+        margin-top: 4px;
         break-inside: avoid;
       }
-      .item:first-of-type {
-        margin-top: 0;
-      }
-      .item-head {
+      .head {
         display: flex;
         justify-content: space-between;
-        gap: 12px;
         align-items: baseline;
+        gap: 10px;
       }
-      .item-title {
-        color: #102a43;
+      .org {
         font-weight: 700;
       }
-      .date {
-        color: #52667a;
+      .org a {
+        font-weight: 400;
         font-size: 8.4pt;
+        color: #222;
+        margin-left: 6px;
+      }
+      .date {
+        font-weight: 700;
         white-space: nowrap;
+        font-size: 8.8pt;
+      }
+      .sub {
+        font-style: italic;
       }
       ul {
-        margin: 2px 0 0;
+        margin: 1px 0 0;
         padding-left: 15px;
       }
       li {
-        margin: 1.5px 0;
+        margin: 1px 0;
       }
-      .project-link {
-        color: #185a7d;
-        font-size: 8.3pt;
-        text-decoration: none;
-      }
-      .muted {
-        color: #52667a;
+      .skills p {
+        margin: 1px 0;
       }
     </style>
   </head>
@@ -108,12 +101,11 @@
     <header>
       <h1>Eduardo Alessandro Santana de Melo</h1>
       <div class="role">
-        Engenheiro de Software | Java &amp; Spring Boot | Backend, APIs REST e
-        React
+        Desenvolvedor de Software | Java, Spring Boot e APIs REST
       </div>
       <div class="contact">
         Ouro Branco, MG · eduardo.melo01992@gmail.com ·
-        <a href="https://www.linkedin.com/in/meloeduardo92"
+        <a href="https://linkedin.com/in/meloeduardo92"
           >linkedin.com/in/meloeduardo92</a
         >
         · <a href="https://github.com/asmeduardo">github.com/asmeduardo</a> ·
@@ -121,151 +113,169 @@
       </div>
     </header>
 
-    <section>
-      <h2>Resumo profissional</h2>
-      <p>
-        Engenheiro de software e Bacharel em Sistemas de Informação, com mais de
-        dois anos de experiência no desenvolvimento de aplicações web para
-        órgãos públicos. Especialização atual em backend com Java e Spring Boot,
-        APIs REST, persistência de dados, segurança e testes automatizados.
-        Experiência no ciclo completo, do levantamento de requisitos à
-        implantação em produção com Docker, CI/CD e servidores Linux. React e
-        TypeScript complementam a atuação em produtos full stack.
-      </p>
-    </section>
+    <h2>Resumo profissional</h2>
+    <p>
+      Desenvolvedor de software e bacharel em Sistemas de Informação, com cerca
+      de 3 anos de experiência em desenvolvimento no setor público e como
+      cofundador de um SaaS próprio. Atuo principalmente com Java, Spring Boot,
+      APIs REST e PostgreSQL, além de React, TypeScript, testes automatizados,
+      Docker e Linux.
+    </p>
 
-    <section>
-      <h2>Competências técnicas</h2>
-      <div class="skills">
-        <p>
-          <strong>Backend:</strong> Java 17/21, Spring Boot, Spring MVC, Spring
-          Data JPA, Spring Security
-        </p>
-        <p>
-          <strong>APIs e segurança:</strong> REST, HTTP/JSON, OAuth 2.0, JWT,
-          validação
-        </p>
-        <p>
-          <strong>Dados:</strong> PostgreSQL, SQL, JPA/Hibernate, modelagem
-          relacional
-        </p>
-        <p>
-          <strong>Qualidade:</strong> JUnit 5, Mockito, Testcontainers, testes
-          unitários e de integração
-        </p>
-        <p><strong>Entrega:</strong> Maven, Git/GitHub, Docker, CI/CD, Linux</p>
-        <p>
-          <strong>Frontend complementar:</strong> React, TypeScript, HTML e CSS
-        </p>
+    <h2>Experiência profissional</h2>
+    <div class="item">
+      <div class="head">
+        <span class="org"
+          >Vigoru<a href="https://vigoru.fit">vigoru.fit</a></span
+        ><span class="date">04/2026 - atual</span>
       </div>
-    </section>
+      <div class="sub">Cofundador e Desenvolvedor | SaaS de treinamento</div>
+      <ul>
+        <li>
+          Cofundei e desenvolvo o Vigoru, SaaS de treinamento recém-lançado na
+          web, Android e iOS, com gestão de alunos, treinos, nutrição, agenda,
+          pagamentos e vitrine de personais.
+        </li>
+        <li>
+          Liderei a arquitetura e desenvolvi as APIs REST com Java 21, Spring
+          Boot e PostgreSQL; construí a aplicação multiplataforma em React,
+          TypeScript e Capacitor.
+        </li>
+        <li>
+          Implementei testes automatizados com JUnit, Mockito, Testcontainers,
+          Vitest e Playwright; implantação com Docker em VPS Linux e
+          monitoramento com Grafana, Sentry e Better Stack.
+        </li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head">
+        <span class="org">ECOTRES (consórcio público)</span
+        ><span class="date">10/2025 - 04/2026</span>
+      </div>
+      <div class="sub">Desenvolvedor Full Stack (estágio)</div>
+      <ul>
+        <li>
+          Criei o EcoSelo, portal de cursos on-line com certificado digital
+          automático, que substituiu turmas presenciais que levavam semanas; 27
+          empresas certificadas na fase inicial.
+        </li>
+        <li>
+          Desenvolvi o EcoFrota, sistema web mobile de agendamento e registro de
+          viagens que substituiu as planilhas e o controle em papel dos
+          veículos, eliminando registros esquecidos e perdidos, com checklist
+          semanal por fotos e relatórios de combustível, quilometragem, destinos
+          e uso da frota.
+        </li>
+        <li>
+          Automatizei o cadastro patrimonial com descrições geradas por IA e
+          consulta por código de barras.
+        </li>
+        <li>
+          Digitalizei as pesagens do aterro, eliminando ~10 viagens mensais
+          (~240 km) para levar tickets de pesagem à sede (economia estimada de
+          R$ 150/mês em combustível), com relatórios de caminhões por município
+          e horários de pico.
+        </li>
+        <li>
+          Substituí o deploy manual por FTP (~30 min por publicação) por CI/CD
+          com Docker e testes automatizados em Linux, com publicação automática
+          a cada push.
+        </li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head">
+        <span class="org">Prefeitura Municipal de Ouro Branco</span
+        ><span class="date">05/2023 - 05/2025</span>
+      </div>
+      <div class="sub">Desenvolvedor Full Stack (estágio)</div>
+      <ul>
+        <li>
+          Mantive e evoluí o SIGA, sistema multi-tenant de gestão ambiental
+          (PHP, MySQL e JavaScript) em produção em Ouro Branco, com mais de 500
+          acessos mensais de cidadãos e servidores a processos ambientais e
+          tributários.
+        </li>
+        <li>
+          Criei o módulo IPTU Verde do SIGA (projeto vencedor do processo
+          seletivo do estágio), que levou para o on-line os pedidos de desconto
+          de até 10% no IPTU por práticas sustentáveis, antes presenciais, com
+          acompanhamento e certificado digital; mais de 320 requerimentos
+          realizados.
+        </li>
+        <li>
+          Identifiquei e corrigi uma vulnerabilidade crítica de IDOR/BOLA,
+          anterior à minha entrada, que expunha requerimentos de outros cidadãos
+          pela troca do ID na URL, aplicando no servidor verificação de
+          autorização e permissões de visualização e edição (RBAC).
+        </li>
+      </ul>
+    </div>
 
-    <section>
-      <h2>Experiência profissional</h2>
-      <div class="item">
-        <div class="item-head">
-          <div class="item-title">
-            ECOTRES — Desenvolvedor Full Stack (estágio)
-          </div>
-          <div class="date">out/2025 – abr/2026</div>
-        </div>
-        <ul>
-          <li>
-            Desenvolvi a plataforma EcoSelo para capacitação on-line e emissão
-            de certificados, eliminando a necessidade de deslocamento para a
-            realização dos cursos.
-          </li>
-          <li>
-            Criei um sistema de gerenciamento de frota que substituiu planilhas
-            impressas e digitalizou o arquivamento, o agendamento e o início das
-            viagens.
-          </li>
-          <li>
-            Projetei sistemas internos para controle patrimonial e gerenciamento
-            das atividades do aterro sanitário, centralizando dados
-            operacionais.
-          </li>
-          <li>
-            Implantei aplicações em servidores Linux com Docker, CI/CD e testes
-            automatizados.
-          </li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="item-head">
-          <div class="item-title">
-            Prefeitura Municipal de Ouro Branco — Desenvolvedor Full Stack
-            (estágio)
-          </div>
-          <div class="date">mai/2023 – mai/2025</div>
-        </div>
-        <ul>
-          <li>
-            Mantive e evoluí o SIGA com PHP, MySQL, JavaScript, HTML e CSS,
-            integrando funcionalidades usadas pelos cidadãos e pela
-            administração municipal.
-          </li>
-          <li>
-            Implementei controles de autorização que impediram o acesso a
-            registros pertencentes a outros usuários.
-          </li>
-          <li>
-            Entreguei o módulo IPTU Verde, a ativação de contas por e-mail e
-            interfaces responsivas.
-          </li>
-          <li>
-            Utilizei Git e GitHub e automatizei a implantação da aplicação em um
-            servidor VPS Linux.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projetos em destaque</h2>
-      <div class="item">
-        <p>
-          <span class="item-title">Calculo Psicrometrico</span> — redesenhei e
-          reescrevi a interface do aplicativo Android com mais de 10 mil
-          downloads. A avaliação SUS evoluiu de 72,28 para 89,64 (+24%),
-          alcançando classificação excelente.
-        </p>
-        <a
-          class="project-link"
-          href="https://play.google.com/store/apps/details?id=ifmg.grapsidroid&amp;hl=pt_BR"
-          >Google Play · ifmg.grapsidroid</a
+    <h2>Projetos em destaque</h2>
+    <div class="item">
+      <div class="head">
+        <span class="org"
+          >Cálculo Psicrométrico<a
+            href="https://play.google.com/store/apps/details?id=ifmg.grapsidroid"
+            >play.google.com/store/apps/details?id=ifmg.grapsidroid</a
+          ></span
         >
       </div>
-      <div class="item">
-        <p>
-          <span class="item-title">VigorU (em desenvolvimento)</span> —
-          plataforma de treinos e marketplace de treinadores, com backend Java e
-          Spring Boot, PostgreSQL, web React/TypeScript e aplicativo Flutter.
-        </p>
-      </div>
-    </section>
+      <div class="sub">TCC | App Android em Java</div>
+      <ul>
+        <li>
+          Modernizei em Java o app Android de cálculo psicrométrico criado pelo
+          professor Saulo em 2018; com base em avaliações da loja e literatura
+          técnica, a pontuação de usabilidade (SUS) subiu de 72,28 para 89,64
+          (+24%).
+        </li>
+        <li>
+          Mais de 10 mil downloads, nota 4,6 na Google Play e cerca de 3,6 mil
+          dispositivos ativos mensalmente.
+        </li>
+      </ul>
+    </div>
 
-    <section>
-      <h2>Formação</h2>
-      <div class="item-head">
-        <p>
-          <strong>Bacharelado em Sistemas de Informação</strong> — Instituto
-          Federal de Minas Gerais (IFMG)
-        </p>
-        <span class="date">mai/2021 – jan/2026</span>
-      </div>
-      <div class="item-head">
-        <p><strong>Java Spring Profissional</strong> — DevSuperior</p>
-        <span class="date">nov/2024 – jun/2025</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Idiomas</h2>
+    <h2>Habilidades técnicas</h2>
+    <div class="skills">
       <p>
-        Inglês para leitura e escrita técnica, compreensão oral e conversas
-        básicas.
+        <b>Backend e APIs:</b> Java 21/25, Spring Boot, Spring MVC, Spring Data
+        JPA, Spring Security, Hibernate, REST, Kafka, OAuth 2.0 e JWT.
       </p>
-    </section>
+      <p>
+        <b>Dados e testes:</b> PostgreSQL, MySQL, SQL, JUnit 5, Mockito,
+        Testcontainers, Vitest e Playwright.
+      </p>
+      <p>
+        <b>Frontend, nuvem e entrega:</b> React, TypeScript, JavaScript, HTML5,
+        CSS3, Capacitor, Maven, Git/GitHub, Docker, AWS, CI/CD, Linux e VPS.
+        Observabilidade: Grafana, Sentry e Better Stack.
+      </p>
+      <p>
+        <b>IA no desenvolvimento:</b> Claude Code e Codex; integração com APIs
+        de LLM (OpenAI) e saídas estruturadas.
+      </p>
+    </div>
+
+    <h2>Formação acadêmica</h2>
+    <div class="item">
+      <div class="head">
+        <span class="org">IFMG - Bacharelado em Sistemas de Informação</span
+        ><span class="date">05/2021 - 01/2026</span>
+      </div>
+      <div class="sub">Concluído</div>
+    </div>
+
+    <h2>Idiomas e cursos</h2>
+    <p>
+      <b>Inglês:</b> leitura e escrita técnica; compreensão oral e conversação
+      básica.
+    </p>
+    <p>
+      <b>Curso Java Spring Profissional</b> - DevSuperior | nov/2024 - jun/2025
+    </p>
+    <p><b>The Complete JavaScript Course</b> - Udemy (Jonas Schmedtmann)</p>
   </body>
 </html>
