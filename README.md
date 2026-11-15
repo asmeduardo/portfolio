@@ -1,6 +1,6 @@
-# Portfólio — Eduardo Melo
+# Portfólio — Eduardo de Melo
 
-Portfólio profissional de [Eduardo Melo](https://github.com/asmeduardo), Engenheiro de Software com foco em Java, Spring Boot, APIs REST e React. O projeto apresenta experiências e cases por meio de fatos verificáveis, sem expor código, dados ou estratégias de produtos privados.
+Portfólio profissional de [Eduardo de Melo](https://github.com/asmeduardo), Engenheiro de Software com foco em Java, Spring Boot, APIs REST e React. O projeto apresenta experiências e cases por meio de fatos verificáveis, sem expor código, dados ou estratégias de produtos privados.
 
 ## Objetivo
 

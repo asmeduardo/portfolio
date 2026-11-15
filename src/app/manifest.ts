@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 
+import { portfolio } from "@/data/portfolio";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Eduardo Melo — Portfólio",
-    short_name: "Eduardo Melo",
-    description:
-      "Portfólio profissional de Eduardo Melo, Engenheiro de Software.",
+    name: `${portfolio.name} — Portfólio`,
+    short_name: portfolio.name,
+    description: `Portfólio profissional de ${portfolio.name}, Engenheiro de Software.`,
     start_url: "/",
     display: "standalone",
     background_color: "#07111f",
