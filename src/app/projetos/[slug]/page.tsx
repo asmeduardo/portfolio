@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <p>{project.summary}</p>
         </div>
         <span className="status status-large">
-          {project.status !== "Publicado" ? (
+          {project.privateCode ? (
             <LockKeyhole aria-hidden="true" size={15} />
           ) : null}
           {project.status}
@@ -227,7 +227,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       ) : null}
 
-      {project.status !== "Publicado" ? (
+      {project.privateCode ? (
         <aside className="privacy-note">
           <LockKeyhole aria-hidden="true" size={20} />
           <p>

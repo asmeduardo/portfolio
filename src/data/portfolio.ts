@@ -10,7 +10,9 @@ const projectSchema = z.object({
   title: z.string().min(1),
   eyebrow: z.string().min(1),
   summary: z.string().min(30),
-  status: z.enum(["Publicado", "Privado", "Em desenvolvimento"]),
+  status: z.enum(["Publicado", "Lançado", "Privado", "Em desenvolvimento"]),
+  /** Product state and code visibility are independent: a launched product can keep its code private. */
+  privateCode: z.boolean(),
   featured: z.boolean(),
   metrics: z.array(
     z.object({ value: z.string().min(1), label: z.string().min(1) }),
@@ -267,6 +269,7 @@ export const portfolio = portfolioSchema.parse({
       summary:
         "Redesenho e reescrita da interface de um aplicativo técnico usado no agronegócio e em processos industriais.",
       status: "Publicado",
+      privateCode: false,
       featured: true,
       metrics: [
         { value: "10 mil+", label: "downloads na Google Play" },
@@ -371,6 +374,7 @@ export const portfolio = portfolioSchema.parse({
       summary:
         "Conjunto de plataformas internas para capacitação, frota, patrimônio e operação de aterro sanitário.",
       status: "Privado",
+      privateCode: true,
       featured: true,
       metrics: [],
       technologies: [
@@ -443,6 +447,7 @@ export const portfolio = portfolioSchema.parse({
       summary:
         "Plataforma de treino com marketplace, acompanhamento profissional e experiências web e mobile integradas.",
       status: "Em desenvolvimento",
+      privateCode: true,
       featured: true,
       metrics: [],
       technologies: [

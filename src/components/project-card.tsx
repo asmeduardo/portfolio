@@ -17,7 +17,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="project-card-topline">
         <span>{project.eyebrow}</span>
         <span className="status">
-          {project.status !== "Publicado" ? (
+          {project.privateCode ? (
             <LockKeyhole aria-hidden="true" size={13} />
           ) : null}
           {project.status}
