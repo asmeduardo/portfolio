@@ -92,6 +92,16 @@ describe("portfolio data", () => {
     }
   });
 
+  it("describes Cálculo Psicrométrico as the résumé does", () => {
+    const app = getProject("calculo-psicrometrico");
+
+    expect(app?.title).toBe("Cálculo Psicrométrico");
+    expect(app?.technologies).toContain("Java");
+    expect(app?.privateCode).toBe(true);
+    expect(app?.contribution[0]).toMatch(/^Modernizei em Java/);
+    expect(app?.metrics.map((metric) => metric.value)).toContain("4,6");
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
