@@ -35,6 +35,15 @@ describe("portfolio data", () => {
     expect(JSON.stringify(vigoru)).not.toMatch(/não é lançado|VigorU/);
   });
 
+  it("lists Vigoru first in the experience timeline, as in the résumé", () => {
+    const [current] = portfolio.experience;
+
+    expect(current.organization).toBe("Vigoru");
+    expect(current.role).toBe("Cofundador e Desenvolvedor");
+    expect(current.period).toBe("abr/2026 — atual");
+    expect(current.highlights).toHaveLength(3);
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
