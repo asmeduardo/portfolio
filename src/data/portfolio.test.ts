@@ -12,6 +12,13 @@ describe("portfolio data", () => {
       "Desenvolvedor de Software | Java, Spring Boot e APIs REST",
     );
   });
+  it("states experience and location exactly as the résumé", () => {
+    expect(portfolio.location).toBe("Ouro Branco, MG");
+    expect(portfolio.impact[0].value).toBe("≈3 anos");
+    expect(portfolio.about[0]).toContain("cerca de 3 anos");
+    expect(portfolio.about[0]).toContain("cofundador de um SaaS");
+    expect(JSON.stringify(portfolio)).not.toMatch(/2\+ anos|dois anos/);
+  });
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 

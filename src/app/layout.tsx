@@ -41,7 +41,8 @@ const personJsonLd = {
   jobTitle: portfolio.title,
   address: {
     "@type": "PostalAddress",
-    addressRegion: "Minas Gerais",
+    addressLocality: "Ouro Branco",
+    addressRegion: "MG",
     addressCountry: "BR",
   },
   sameAs: [portfolio.social.github, portfolio.social.linkedin],
