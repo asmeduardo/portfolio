@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { portfolio } from "@/data/portfolio";
+
 import { ModeToggle } from "@/components/mode-toggle";
 
 const navigation = [
@@ -16,10 +18,10 @@ export function SiteHeader() {
         <Link
           className="brand"
           href="/"
-          aria-label="Página inicial de Eduardo Melo"
+          aria-label={`Página inicial de ${portfolio.name}`}
         >
           <span aria-hidden="true">em.</span>
-          <strong>Eduardo Melo</strong>
+          <strong>{portfolio.name}</strong>
         </Link>
         <nav aria-label="Navegação principal">
           {navigation.map((item) => (

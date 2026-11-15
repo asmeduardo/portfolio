@@ -107,7 +107,7 @@ export type ProjectCase = z.infer<typeof projectSchema>;
 
 export const portfolio = portfolioSchema.parse({
   siteUrl: "https://eduardomelo.dev",
-  name: "Eduardo Melo",
+  name: "Eduardo de Melo",
   role: "Engenheiro de Software | Java & Spring Boot | Backend, APIs REST e React",
   location: "Minas Gerais, Brasil",
   email: "eduardo.melo01992@gmail.com",

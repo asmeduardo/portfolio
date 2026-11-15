@@ -10,6 +10,16 @@ test("presents the professional home page without accessibility violations", asy
   });
 
   await page.goto("/");
+  await expect(page.locator(".brand strong")).toHaveText("Eduardo de Melo");
+  await expect(page).toHaveTitle(/Eduardo de Melo/);
+  await expect(page.locator('meta[name="author"]')).toHaveAttribute(
+    "content",
+    "Eduardo de Melo",
+  );
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    "content",
+    /Eduardo de Melo/,
+  );
 
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "problemas reais",

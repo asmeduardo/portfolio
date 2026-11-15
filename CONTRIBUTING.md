@@ -1,6 +1,6 @@
 # Contribuição
 
-Este repositório é o portfólio pessoal de Eduardo Melo. Correções objetivas são bem-vindas por pull request.
+Este repositório é o portfólio pessoal de Eduardo de Melo. Correções objetivas são bem-vindas por pull request.
 
 ## Fluxo de trabalho
 

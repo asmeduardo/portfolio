@@ -3,6 +3,9 @@ import { describe, expect, it } from "vitest";
 import { getProject, portfolio } from "@/data/portfolio";
 
 describe("portfolio data", () => {
+  it("publishes the complete professional name", () => {
+    expect(portfolio.name).toBe("Eduardo de Melo");
+  });
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
