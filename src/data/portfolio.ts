@@ -207,11 +207,11 @@ export const portfolio = portfolioSchema.parse({
       role: "Desenvolvedor Full Stack — estágio",
       period: "mai/2023 — mai/2025",
       description:
-        "Manutenção e evolução do SIGA, sistema usado por cidadãos e pela administração municipal.",
+        "Manutenção e evolução do SIGA, sistema multi-tenant de gestão ambiental usado por cidadãos e servidores.",
       highlights: [
-        "Implementei controles de autorização que impediram o acesso a registros pertencentes a outros usuários.",
-        "Entreguei o módulo IPTU Verde, ativação de contas por e-mail e interfaces responsivas.",
-        "Automatizei a implantação da aplicação em um servidor VPS Linux.",
+        "Mantive e evoluí o SIGA, sistema multi-tenant de gestão ambiental (PHP, MySQL e JavaScript) em produção em Ouro Branco, com mais de 500 acessos mensais a processos ambientais e tributários.",
+        "Criei o módulo IPTU Verde (projeto vencedor do processo seletivo do estágio), que levou para o on-line os pedidos de desconto de até 10% no IPTU por práticas sustentáveis; mais de 320 requerimentos realizados.",
+        "Identifiquei e corrigi uma vulnerabilidade crítica de IDOR/BOLA que expunha requerimentos de outros cidadãos pela troca do ID na URL, aplicando verificação de autorização no servidor e permissões de visualização e edição (RBAC).",
       ],
     },
   ],
