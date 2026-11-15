@@ -10,7 +10,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(portfolio.siteUrl),
   title: {
-    default: `${portfolio.name} — Engenheiro de Software`,
+    default: `${portfolio.name} — ${portfolio.title}`,
     template: `%s | ${portfolio.name}`,
   },
   description: portfolio.introduction,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   authors: [{ name: portfolio.name, url: portfolio.siteUrl }],
   creator: portfolio.name,
   openGraph: {
-    title: `${portfolio.name} — Engenheiro de Software`,
+    title: `${portfolio.name} — ${portfolio.title}`,
     description: portfolio.introduction,
     url: portfolio.siteUrl,
     siteName: `Portfólio de ${portfolio.name}`,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${portfolio.name} — Engenheiro de Software`,
+    title: `${portfolio.name} — ${portfolio.title}`,
     description: portfolio.introduction,
   },
 };
@@ -38,7 +38,7 @@ const personJsonLd = {
   name: portfolio.name,
   url: portfolio.siteUrl,
   email: `mailto:${portfolio.email}`,
-  jobTitle: "Engenheiro de Software",
+  jobTitle: portfolio.title,
   address: {
     "@type": "PostalAddress",
     addressRegion: "Minas Gerais",

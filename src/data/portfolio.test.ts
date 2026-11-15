@@ -6,6 +6,12 @@ describe("portfolio data", () => {
   it("publishes the complete professional name", () => {
     expect(portfolio.name).toBe("Eduardo de Melo");
   });
+  it("uses the same title and headline as the résumé", () => {
+    expect(portfolio.title).toBe("Desenvolvedor de Software");
+    expect(portfolio.role).toBe(
+      "Desenvolvedor de Software | Java, Spring Boot e APIs REST",
+    );
+  });
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 

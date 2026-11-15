@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: `${portfolio.name} — Portfólio`,
     short_name: portfolio.name,
-    description: `Portfólio profissional de ${portfolio.name}, Engenheiro de Software.`,
+    description: `Portfólio profissional de ${portfolio.name}, ${portfolio.title}.`,
     start_url: "/",
     display: "standalone",
     background_color: "#07111f",

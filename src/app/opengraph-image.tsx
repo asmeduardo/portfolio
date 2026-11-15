@@ -46,7 +46,7 @@ export default function OpenGraphImage() {
             marginTop: 20,
           }}
         >
-          Engenheiro de Software · Java & Spring Boot · React
+          {portfolio.role.replace(" | ", " · ")}
         </span>
       </div>
       <div

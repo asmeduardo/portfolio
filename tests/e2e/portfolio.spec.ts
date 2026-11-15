@@ -11,7 +11,7 @@ test("presents the professional home page without accessibility violations", asy
 
   await page.goto("/");
   await expect(page.locator(".brand strong")).toHaveText("Eduardo de Melo");
-  await expect(page).toHaveTitle(/Eduardo de Melo/);
+  await expect(page).toHaveTitle("Eduardo de Melo — Desenvolvedor de Software");
   await expect(page.locator('meta[name="author"]')).toHaveAttribute(
     "content",
     "Eduardo de Melo",
