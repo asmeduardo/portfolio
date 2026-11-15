@@ -41,6 +41,3 @@ next-env.d.ts
 # test artifacts
 /playwright-report/
 /test-results/
-
-# Netlify
-.netlify/
