@@ -18,7 +18,9 @@ export default function HomePage() {
     <main id="conteudo">
       <section className="hero section-shell" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">{portfolio.name} · Engenheiro de software</p>
+          <p className="eyebrow">
+            {portfolio.name} · {portfolio.title}
+          </p>
           <h1 id="hero-title">
             Software que resolve <em>problemas reais.</em>
           </h1>

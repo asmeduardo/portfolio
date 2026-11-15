@@ -48,6 +48,7 @@ const projectSchema = z.object({
 const portfolioSchema = z.object({
   siteUrl: z.string().url(),
   name: z.string().min(1),
+  title: z.string().min(1),
   role: z.string().min(1),
   location: z.string().min(1),
   email: z.string().email(),
@@ -108,7 +109,8 @@ export type ProjectCase = z.infer<typeof projectSchema>;
 export const portfolio = portfolioSchema.parse({
   siteUrl: "https://eduardomelo.dev",
   name: "Eduardo de Melo",
-  role: "Engenheiro de Software | Java & Spring Boot | Backend, APIs REST e React",
+  title: "Desenvolvedor de Software",
+  role: "Desenvolvedor de Software | Java, Spring Boot e APIs REST",
   location: "Minas Gerais, Brasil",
   email: "eduardo.melo01992@gmail.com",
   introduction:
@@ -116,7 +118,7 @@ export const portfolio = portfolioSchema.parse({
   about: [
     "Sou bacharel em Sistemas de Informação e tenho mais de dois anos de experiência no desenvolvimento, na implantação e na manutenção de aplicações web para órgãos públicos.",
     "Atuo da modelagem dos dados à entrega em produção. No backend, trabalho com Java, Spring Boot, APIs REST e bancos relacionais. No frontend, uso React e TypeScript para integrar jornadas completas com clareza e acessibilidade.",
-    "Procuro oportunidades como Engenheiro de Software, Desenvolvedor Backend Java ou Desenvolvedor Full Stack com predominância de Java, nos níveis júnior ou pleno inicial.",
+    "Procuro oportunidades como Desenvolvedor de Software, Desenvolvedor Backend Java ou Desenvolvedor Full Stack com predominância de Java, nos níveis júnior ou pleno.",
   ],
   social: {
     github: "https://github.com/asmeduardo",
