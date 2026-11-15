@@ -36,12 +36,27 @@ describe("portfolio data", () => {
 
   it("marks every private case explicitly", () => {
     const privateProjects = portfolio.projects.filter(
-      (project) => project.status !== "Publicado",
+      (project) => project.status === "Privado",
     );
 
     expect(privateProjects).not.toHaveLength(0);
     expect(privateProjects.every((project) => project.links.length === 0)).toBe(
       true,
     );
+  });
+
+  it("never links the source code of a project whose code is private", () => {
+    const privateCode = portfolio.projects.filter(
+      (project) => project.privateCode,
+    );
+
+    expect(privateCode).not.toHaveLength(0);
+    for (const project of privateCode) {
+      expect(
+        project.links.every(
+          (link) => !new URL(link.href).hostname.endsWith("github.com"),
+        ),
+      ).toBe(true);
+    }
   });
 });
