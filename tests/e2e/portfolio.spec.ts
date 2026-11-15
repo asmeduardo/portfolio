@@ -145,6 +145,17 @@ test("rotates book covers automatically and respects reduced motion", async ({
   ).toBeLessThan(8);
 });
 
+test("locks only private products and explains private code on launched ones", async ({
+  page,
+}) => {
+  await page.goto("/projetos/vigoru");
+  await expect(page.locator(".status-large svg")).toHaveCount(0);
+  await expect(page.locator(".privacy-note")).toBeVisible();
+
+  await page.goto("/projetos/sistemas-ecotres");
+  await expect(page.locator(".status-large svg")).toHaveCount(1);
+});
+
 test("shows sanitized ECOTRES screenshots without presenting demo data as real results", async ({
   page,
 }) => {
