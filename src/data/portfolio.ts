@@ -131,7 +131,8 @@ export const portfolio = portfolioSchema.parse({
     { value: "10 mil+", label: "downloads na Google Play" },
     {
       value: "≈3,6 mil",
-      label: "dispositivos ativos com o app instalado em julho de 2025",
+      label:
+        "dispositivos ativos mensalmente no Cálculo Psicrométrico (jul/2025)",
     },
     { value: "72,28 → 89,64", label: "evolução real na avaliação SUS" },
   ],
@@ -278,23 +279,25 @@ export const portfolio = portfolioSchema.parse({
   projects: [
     {
       slug: "calculo-psicrometrico",
-      title: "Calculo Psicrometrico",
-      eyebrow: "Produto Android publicado",
+      title: "Cálculo Psicrométrico",
+      eyebrow: "TCC · App Android em Java publicado",
       summary:
-        "Redesenho e reescrita da interface de um aplicativo técnico usado no agronegócio e em processos industriais.",
+        "Modernização em Java de um aplicativo Android técnico usado no agronegócio e em processos industriais.",
       status: "Publicado",
-      privateCode: false,
+      privateCode: true,
       featured: true,
       metrics: [
         { value: "10 mil+", label: "downloads na Google Play" },
+        { value: "4,6", label: "nota na Google Play" },
         {
           value: "≈3,6 mil",
-          label: "dispositivos ativos com o app instalado em julho de 2025",
+          label: "dispositivos ativos mensalmente (julho de 2025)",
         },
         { value: "+17,36", label: "pontos na escala SUS" },
         { value: "89,64", label: "avaliação final de usabilidade" },
       ],
       technologies: [
+        "Java",
         "Android",
         "UX",
         "System Usability Scale",
@@ -305,8 +308,8 @@ export const portfolio = portfolioSchema.parse({
         "A interface existente exigia uma revisão que reduzisse atritos sem comprometer o caráter técnico do produto.",
       ],
       contribution: [
-        "Participei do redesenho e da reescrita da interface sob orientação do professor Saulo Henrique Cabral Silva.",
-        "O trabalho conciliou requisitos técnicos, organização visual e avaliação estruturada de usabilidade.",
+        "Modernizei em Java o app Android de cálculo psicrométrico criado pelo professor Saulo Henrique Cabral Silva em 2018, sob a orientação dele, como trabalho de conclusão de curso.",
+        "As mudanças partiram de avaliações da loja e da literatura técnica e conciliaram requisitos técnicos, organização visual e avaliação estruturada de usabilidade.",
       ],
       decisions: [
         "As mudanças foram avaliadas com a System Usability Scale para que a evolução da experiência não dependesse apenas de percepção subjetiva.",
@@ -315,7 +318,7 @@ export const portfolio = portfolioSchema.parse({
       results: [
         "A pontuação média da System Usability Scale aumentou de 72,28 para 89,64, alcançando a faixa excelente.",
         "Em julho de 2025, o artigo do projeto registrou cerca de 3.600 dispositivos ativos. Essa medida não equivale a usuários ativos mensais.",
-        "O aplicativo mantém mais de 10 mil downloads na Google Play.",
+        "O aplicativo mantém mais de 10 mil downloads e nota 4,6 na Google Play.",
       ],
       links: [
         {
