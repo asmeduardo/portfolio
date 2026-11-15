@@ -354,6 +354,9 @@ a {
   border-top: 1px solid var(--border);
   padding-top: 1rem;
 }
+.skill-group:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
 .skill-group h3 {
   font-size: 0.9rem;
   margin: 0 0 0.8rem;

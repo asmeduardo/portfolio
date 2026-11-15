@@ -102,6 +102,29 @@ describe("portfolio data", () => {
     expect(app?.metrics.map((metric) => metric.value)).toContain("4,6");
   });
 
+  it("lists exactly the résumé skills, in the same groups", () => {
+    expect(portfolio.skills.map((group) => group.group)).toEqual([
+      "Backend e APIs",
+      "Dados e testes",
+      "Frontend, nuvem e entrega",
+      "Observabilidade",
+      "IA no desenvolvimento",
+    ]);
+    const all = portfolio.skills.flatMap((group) => group.items);
+    for (const skill of [
+      "Java 21/25",
+      "Kafka",
+      "AWS",
+      "MySQL",
+      "Vitest",
+      "Playwright",
+      "Capacitor",
+      "Sentry",
+    ]) {
+      expect(all).toContain(skill);
+    }
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
