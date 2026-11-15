@@ -788,8 +788,7 @@ a {
 .learning-item a:hover {
   color: var(--brand);
 }
-.learning-item span,
-.learning-empty {
+.learning-item span {
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.6;

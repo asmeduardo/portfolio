@@ -168,6 +168,13 @@ export default function HomePage() {
               <span>{item.institution}</span>
             </article>
           ))}
+          {portfolio.languages.map((item) => (
+            <article className="education-card" key={item.language}>
+              <p>Idioma</p>
+              <h3>{item.language}</h3>
+              <span>{item.level}</span>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -191,21 +198,17 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <div className="learning-column">
-            <h3>Em andamento</h3>
-            {portfolio.learning.courses.current.length ? (
-              portfolio.learning.courses.current.map((course) => (
+          {portfolio.learning.courses.current.length ? (
+            <div className="learning-column">
+              <h3>Em andamento</h3>
+              {portfolio.learning.courses.current.map((course) => (
                 <article className="learning-item" key={course.title}>
                   <strong>{course.title}</strong>
                   <span>{course.provider}</span>
                 </article>
-              ))
-            ) : (
-              <p className="learning-empty">
-                Nenhum curso em andamento informado.
-              </p>
-            )}
-          </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 
