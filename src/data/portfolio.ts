@@ -189,15 +189,17 @@ export const portfolio = portfolioSchema.parse({
       ],
     },
     {
-      organization: "ECOTRES",
+      organization: "ECOTRES (consórcio público)",
       role: "Desenvolvedor Full Stack — estágio",
       period: "out/2025 — abr/2026",
       description:
-        "Desenvolvimento de plataformas web que digitalizaram processos de capacitação e rotinas operacionais.",
+        "Desenvolvimento de plataformas web que digitalizaram capacitação, frota, patrimônio e operação do aterro sanitário.",
       highlights: [
-        "Desenvolvi a plataforma EcoSelo para capacitação on-line e emissão de certificados.",
-        "Criei um sistema de gestão de frota que substituiu planilhas impressas no arquivamento, no agendamento e no início das viagens.",
-        "Implantei aplicações em servidores Linux com Docker, CI/CD e testes automatizados.",
+        "Criei o EcoSelo, portal de cursos on-line com certificado digital automático, que substituiu turmas presenciais que levavam semanas; 27 empresas certificadas na fase inicial.",
+        "Desenvolvi o EcoFrota, sistema web mobile de agendamento e registro de viagens que substituiu planilhas e controle em papel, com checklist semanal por fotos e relatórios de combustível, quilometragem, destinos e uso da frota.",
+        "Automatizei o cadastro patrimonial com descrições geradas por IA e consulta por código de barras.",
+        "Digitalizei as pesagens do aterro, eliminando ~10 viagens mensais (~240 km) para levar tickets à sede, com economia estimada de R$ 150/mês em combustível.",
+        "Substituí o deploy manual por FTP (~30 min por publicação) por CI/CD com Docker e testes automatizados em Linux, com publicação automática a cada push.",
       ],
     },
     {
@@ -388,7 +390,21 @@ export const portfolio = portfolioSchema.parse({
       status: "Privado",
       privateCode: true,
       featured: true,
-      metrics: [],
+      metrics: [
+        {
+          value: "27",
+          label: "empresas certificadas pelo EcoSelo na fase inicial",
+        },
+        {
+          value: "~240 km",
+          label: "por mês deixaram de ser percorridos com tickets do aterro",
+        },
+        { value: "R$ 150/mês", label: "de economia estimada em combustível" },
+        {
+          value: "~30 min → push",
+          label: "deploy manual por FTP trocado por CI/CD",
+        },
+      ],
       technologies: [
         "Aplicações web",
         "Docker",
@@ -400,16 +416,19 @@ export const portfolio = portfolioSchema.parse({
         "Cursos presenciais e rotinas apoiadas em planilhas impressas criavam deslocamentos, retrabalho e informação fragmentada.",
       ],
       contribution: [
-        "Desenvolvi a plataforma EcoSelo para capacitação on-line e emissão de certificados.",
-        "Criei um sistema de gestão de frota e projetei soluções internas para controle patrimonial e atividades do aterro sanitário.",
+        "Criei o EcoSelo, portal de cursos on-line com certificado digital automático.",
+        "Desenvolvi o EcoFrota, para agendamento e registro de viagens com checklist semanal por fotos e relatórios de uso da frota.",
+        "Automatizei o cadastro patrimonial com descrições geradas por IA e consulta por código de barras, e digitalizei as pesagens do aterro.",
       ],
       decisions: [
         "Os fluxos foram modelados a partir das rotinas reais de cada equipe para centralizar dados sem perder a rastreabilidade operacional.",
         "A entrega incluiu implantação em Linux, containers, CI/CD e testes automatizados.",
       ],
       results: [
-        "A capacitação passou a ser oferecida on-line, eliminando a necessidade de deslocamento para realizar os cursos.",
-        "O sistema de frota substituiu planilhas impressas no arquivamento, no agendamento e no início das viagens.",
+        "A capacitação passou a ser on-line, substituindo turmas presenciais que levavam semanas; 27 empresas foram certificadas na fase inicial.",
+        "O EcoFrota substituiu planilhas e controle em papel, eliminando registros esquecidos e perdidos.",
+        "A digitalização das pesagens eliminou ~10 viagens mensais (~240 km) até a sede, com economia estimada de R$ 150/mês em combustível.",
+        "Cada push passou a publicar automaticamente após os testes, no lugar de ~30 minutos de deploy manual por FTP.",
       ],
       links: [],
       galleryLayout: "desktop",

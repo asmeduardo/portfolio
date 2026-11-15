@@ -44,6 +44,29 @@ describe("portfolio data", () => {
     expect(current.highlights).toHaveLength(3);
   });
 
+  it("describes ECOTRES with the systems and figures of the résumé", () => {
+    const ecotres = portfolio.experience.find((item) =>
+      item.organization.startsWith("ECOTRES"),
+    );
+    const text = JSON.stringify(ecotres);
+
+    expect(ecotres?.organization).toBe("ECOTRES (consórcio público)");
+    for (const fact of [
+      "EcoSelo",
+      "27 empresas",
+      "EcoFrota",
+      "código de barras",
+      "240 km",
+      "R$ 150",
+      "FTP",
+    ]) {
+      expect(text).toContain(fact);
+    }
+    expect(
+      getProject("sistemas-ecotres")?.metrics.length,
+    ).toBeGreaterThanOrEqual(3);
+  });
+
   it("keeps project slugs unique and resolvable", () => {
     const slugs = portfolio.projects.map((project) => project.slug);
 
