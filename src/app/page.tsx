@@ -106,9 +106,8 @@ export default function HomePage() {
           description="Contexto, escolhas técnicas e resultados verificáveis. Os projetos privados são apresentados sem expor informações confidenciais."
         />
         <p className="current-project-note">
-          <span aria-hidden="true" /> Projeto em andamento:{" "}
-          <strong>VigorU</strong> — plataforma web e mobile para acompanhar
-          treinos.
+          <span aria-hidden="true" /> Produto próprio: <strong>Vigoru</strong> —
+          SaaS de treinamento lançado na web, Android e iOS.
         </p>
         <div className="project-grid">
           {portfolio.projects
